@@ -8,6 +8,15 @@ public class Book {
     private int publicationyear;
     private String isbn;
 
+    public Book(long id, String title, String author, int publicationyear, String isbn, double price) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.publicationyear = publicationyear;
+        this.isbn = isbn;
+        this.price = price;
+    }
+
     public long getId() {
         return id;
     }
