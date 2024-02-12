@@ -17,8 +17,8 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) {
         // kirjatiedot
-        Book book1 = new Book("Title 1", "Author 1", 2000, "ISBN 1", 19.99);
-        Book book2 = new Book("Title 2", "Author 2", 2005, "ISBN 2", 29.99);
+        Book book1 = new Book("Sienihullu", "Anu Barsk", 2022, "9789523732827", 25.80);
+        Book book2 = new Book("Hilppa Hömötiainen", "Seija Helander", 2019, "9789525960914", 12.95);
 
         bookRepository.save(book1);
         bookRepository.save(book2);
