@@ -1,15 +1,23 @@
 package example.bookstore.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
     private String author;
     private int publicationyear;
     private String isbn;
+    private double price;
 
-    public Book(long id, String title, String author, int publicationyear, String isbn, double price) {
-        this.id = id;
+    public Book(String title, String author, int publicationyear, String isbn, double price) {
         this.title = title;
         this.author = author;
         this.publicationyear = publicationyear;
@@ -64,6 +72,4 @@ public class Book {
     public void setPrice(double price) {
         this.price = price;
     }
-
-    private double price;
 }
