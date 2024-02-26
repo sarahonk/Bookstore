@@ -4,17 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Edit Book</h1>
     <form action="/updateBook" method="post" th:object="${book}">
         <input type="hidden" th:field="*{id}">
-        Title: <input type="text" th:field="*{title}"><br>
-        Author: <input type="text" th:field="*{author}"><br>
-        Publication Year: <input type="text" th:field="*{publicationYear}"><br>
-        ISBN: <input type="text" th:field="*{isbn}"><br>
-        Price: <input type="text" th:field="*{price}"><br>
+        <label for="title">Title:</label>
+        <input type="text" id="title" th:field="*{title}"><br>
+        <label for="author">Author:</label>
+        <input type="text" id="author" th:field="*{author}"><br>
+        <label for="publicationYear">Publication Year:</label>
+        <input type="text" id="publicationYear" th:field="*{publicationYear}"><br>
+        <label for="isbn">ISBN:</label>
+        <input type="text" id="isbn" th:field="*{isbn}"><br>
+        <label for="price">Price:</label>
+        <input type="text" id="price" th:field="*{price}"><br>
         <input type="submit" value="Update Book">
     </form>
 </body>

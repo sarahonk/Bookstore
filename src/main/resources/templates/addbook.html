@@ -4,16 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Add Book</h1>
     <form action="/saveBook" method="post">
-        Title: <input type="text" name="title"><br>
-        Author: <input type="text" name="author"><br>
-        Publication Year: <input type="text" name="publicationYear"><br>
-        ISBN: <input type="text" name="isbn"><br>
-        Price: <input type="text" name="price"><br>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"><br>
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author"><br>
+        <label for="publicationYear">Publication Year:</label>
+        <input type="text" id="publicationYear" name="publicationYear"><br>
+        <label for="isbn">ISBN:</label>
+        <input type="text" id="isbn" name="isbn"><br>
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price"><br>
         <input type="submit" value="Add Book">
     </form>
 </body>
