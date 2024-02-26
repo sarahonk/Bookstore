@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+</head>
+
+<body>
+    <h1>Add Book</h1>
+    <form action="/saveBook" method="post">
+        Title: <input type="text" name="title"><br>
+        Author: <input type="text" name="author"><br>
+        Publication Year: <input type="text" name="publicationYear"><br>
+        ISBN: <input type="text" name="isbn"><br>
+        Price: <input type="text" name="price"><br>
+        <input type="submit" value="Add Book">
+    </form>
+</body>
+
+</html>
