@@ -13,17 +13,17 @@ public class Book {
     private long id;
     private String title;
     private String author;
-    private int publicationyear;
+    private int publicationYear;
     private String isbn;
     private double price;
 
     public Book() {
     }
 
-    public Book(String title, String author, int publicationyear, String isbn, double price) {
+    public Book(String title, String author, int publicationYear, String isbn, double price) {
         this.title = title;
         this.author = author;
-        this.publicationyear = publicationyear;
+        this.publicationYear = publicationYear;
         this.isbn = isbn;
         this.price = price;
     }
@@ -52,12 +52,12 @@ public class Book {
         this.author = author;
     }
 
-    public int getPublicationyear() {
-        return publicationyear;
+    public int getPublicationYear() {
+        return publicationYear;
     }
 
-    public void setPublicationyear(int publicationyear) {
-        this.publicationyear = publicationyear;
+    public void setPublicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
     }
 
     public String getIsbn() {
