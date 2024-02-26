@@ -1,16 +1,26 @@
 package example.bookstore.web;
 
+import example.bookstore.model.Book;
+import example.bookstore.repository.BookRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Controller
 public class BookController {
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String showIndex(Model model) {
-        System.out.println("Index endpoint");
-        return "index";
+    private final BookRepository bookRepository;
+
+    public BookController(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
+    @GetMapping("/booklist")
+    public String showBookList(Model model) {
+        List<Book> books = bookRepository.findAll();
+        model.addAttribute("books", books);
+        return "booklist";
     }
 }
