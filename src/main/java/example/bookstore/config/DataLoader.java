@@ -29,15 +29,6 @@ public class DataLoader implements CommandLineRunner {
         logger.info("DataLoader is running...");
 
         // kirjat
-        Book book1 = new Book("Sienihullu", "Anu Barsk", 2022, "9789523732827", 25.80);
-        Book book2 = new Book("Hilppa Hömötiainen", "Seija Helander", 2019, "9789525960914", 12.95);
-
-        bookRepository.save(book1);
-        bookRepository.save(book2);
-
-        logger.info("Kirjatiedot tallennettu");
-
-        // kategoriat
         Category category1 = new Category("Sci-Fi");
         Category category2 = new Category("Comic");
 
@@ -46,12 +37,21 @@ public class DataLoader implements CommandLineRunner {
 
         logger.info("Kategoriat tallennettu");
 
+        Book book1 = new Book("Sienihullu", "Anu Barsk", 2022, "9789523732827", 25.80, category1);
+        Book book2 = new Book("Hilppa Hömötiainen", "Seija Helander", 2019, "9789525960914", 12.95, category2);
+
+        bookRepository.save(book1);
+        bookRepository.save(book2);
+
+        logger.info("Kirjatiedot tallennettu");
+
         // kirjojen haku ja loggaaminen
         List<Book> books = bookRepository.findAll();
         logger.info("Kirjatiedot");
         for (Book book : books) {
-            logger.info("Title: {}, Author: {}, Publication Year: {}, ISBN: {}, Price: {}",
-                    book.getTitle(), book.getAuthor(), book.getPublicationYear(), book.getIsbn(), book.getPrice());
+            logger.info("Title: {}, Author: {}, Publication Year: {}, ISBN: {}, Price: {}, Category: {}",
+                    book.getTitle(), book.getAuthor(), book.getPublicationYear(), book.getIsbn(), book.getPrice(),
+                    book.getCategory().getName());
         }
     }
 }
