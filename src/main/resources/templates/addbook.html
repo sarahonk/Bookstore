@@ -52,17 +52,23 @@
     <h1>Add Book</h1>
     <form action="/saveBook" method="post">
         <label for="title">Title:</label>
-        <input type="text" id="title" name="title"><br>
+        <input type="text" id="title" name="title" required><br>
         <label for="author">Author:</label>
-        <input type="text" id="author" name="author"><br>
+        <input type="text" id="author" name="author" required><br>
         <label for="publicationYear">Publication Year:</label>
-        <input type="text" id="publicationYear" name="publicationYear"><br>
+        <input type="number" id="publicationYear" name="publicationYear" required><br>
         <label for="isbn">ISBN:</label>
-        <input type="text" id="isbn" name="isbn"><br>
+        <input type="text" id="isbn" name="isbn" required><br>
         <label for="price">Price:</label>
-        <input type="text" id="price" name="price"><br>
+        <input type="number" id="price" name="price" step="0.01" required><br>
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+        </select><br>
         <input type="submit" value="Add Book">
     </form>
 </body>
+
+</html>
 
 </html>
