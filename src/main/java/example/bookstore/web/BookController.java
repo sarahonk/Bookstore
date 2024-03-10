@@ -1,7 +1,6 @@
 package example.bookstore.web;
 
 import example.bookstore.model.Book;
-import example.bookstore.model.Category;
 import example.bookstore.repository.BookRepository;
 import example.bookstore.repository.CategoryRepository;
 import org.springframework.stereotype.Controller;
@@ -64,4 +63,22 @@ public class BookController {
         bookRepository.save(book);
         return "redirect:/booklist";
     }
+
+    @GetMapping("/api/books/{id}")
+    @ResponseBody
+    public Optional<Book> getBookById(@PathVariable("id") Long id) {
+        return bookRepository.findById(id);
+    }
+
+    @SuppressWarnings("null")
+    @PostMapping("/api/books")
+    @ResponseBody
+    public Book createBook(@RequestBody Book book) {
+        if (book.getCategory() != null && book.getCategory().getId() != null) {
+        } else {
+            book.setCategory(categoryRepository.save(book.getCategory()));
+        }
+        return bookRepository.save(book);
+    }
+
 }
